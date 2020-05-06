@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <Navbar></Navbar>
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                
+            },
+            //定义Vue的使用的组件
+            components:{
+                //组件的名字
+                'Navbar': {
+                    //组件的内容
+                    template: '<ul><li>首页</li><li>学员管理</li></ul>'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
