@@ -1,0 +1,29 @@
+<script>
+
+    //1.传统方式创建方法
+
+    var f1 = function(m){
+        return m;
+    }
+    // console.log(f1(2));
+
+    //使用箭头函数改造
+
+    var f2 = m => m ;
+
+    // console.log(f2(8));
+
+    //2.复杂一点的方法
+    var f3 = function (a,b){
+        return a + b ;
+    }
+
+    console.log(f3(1,2));
+
+    //使用箭头函数
+
+    var f4 = (a,b) => a + b ;
+
+    console.log(f4(1,2));
+
+</script>

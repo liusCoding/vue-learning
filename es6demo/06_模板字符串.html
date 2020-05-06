@@ -1,0 +1,26 @@
+<script>
+
+    //1、使用  `符号实现换行
+
+    let str1 = `hello,
+    es6 demo up!`;
+
+    //console.log(str1);
+
+
+    //2.在 ``符号里面使用表达式获取变量值
+
+    let name = "Mike";
+    let age = 20;
+
+    let str2 = `hello, ${name},age is ${age+1}`;
+    console.log(str2);
+
+    //3.在`符号调用函数
+    function f1(){
+        return "hello f1";
+    }
+    let str3 = `demo ,${f1()}`;
+
+    console.log(str3);
+</script>

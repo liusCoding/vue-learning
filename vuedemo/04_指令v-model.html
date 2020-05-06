@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-bind:value 只能进行单向的数据渲染 -->
+        <input type="text" v-bind:value="searchMap.keyword"></input>
+        <!-- v-model 可以进行双向的数据绑定 -->
+        <input type="text" v-model="searchMap.keyword"></input>
+
+        <p>{{searchMap.keyword}}</p>
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                searchMap:{
+                    keyword:'liucoding'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

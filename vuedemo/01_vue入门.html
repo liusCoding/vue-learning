@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="vue.min.js"></script>
+
+    <div id ="app">
+        <!-- {{}} 插值表达式，绑定vue中的data数据 -->
+
+        {{message}}
+    </div>
+
+
+    <!-- Vue固定结构 -->
+    <script>
+        // 创建一个vue对象
+
+        new Vue({
+            el: '#app',//绑定vue的作用的范围
+            data: {
+                //定义页面中显示的模型数据
+                message: 'Hello Vue!'
+            }
+        })
+    </script>
+</body>
+</html>

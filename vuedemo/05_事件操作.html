@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- vue 绑定事件 -->
+
+        <button v-on:click="search()">查询</button>
+
+
+        <br>
+        <!-- vue绑定事件简写方式 -->
+        <button @click="search()">查询1</button>
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                searchMap:{
+                    keyword:'北京'
+                },
+
+                //查询结果
+                result:{}
+            },
+            methods: {
+                //定义多个方法
+                search(){
+                    console.log('search....')
+                },
+
+                f1(){
+                    console.log('f1')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
