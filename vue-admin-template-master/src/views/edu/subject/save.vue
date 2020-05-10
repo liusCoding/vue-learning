@@ -18,7 +18,7 @@
           :on-error="fileUploadError"
           :disabled="importBtnDisabled"
           :limit="1"
-          :action="BASE_API+'/eduservice/subject/addSubject'"
+          :action="BASE_API+'/edu/subject/addSubject'"
           name="file"
           accept="application/vnd.ms-excel">
           <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
@@ -46,7 +46,40 @@ export default {
 
     },
     methods:{
-      
+
+        // 上传成功
+      fileUploadSuccess(){
+          //提示信息
+          this.loading = false;
+
+          this.$message({
+              type: 'success',
+              message: '添加课程分类成功'
+          })
+
+          //跳转到课程分类页面
+            //路由跳转
+            this.$router.push({path:'/subject/list'})
+      },
+
+        // 上传失败
+        fileUploadError(){
+            //提示信息
+          this.loading = false;
+
+          this.$message({
+              type: 'error',
+              message: '添加课程分类失败'
+          })
+        },
+
+        //点击按钮上传文件到接口里面
+        submitUpload(){
+            this.importBtnDisabled = true;
+            this.loading = true;
+            // js: document.getElementById("upload").submit()
+            this.$refs.upload.submit()
+        }
     }
 }
 </script>
