@@ -56,12 +56,10 @@
 
       <el-table-column label="操作" width="200">
         <template slot-scope="scope">
-          <el-button
-            type="danger"
-            size="mini"
-            icon="el-icon-delete"
-            @click="removeDataById(scope.row.id)"
-          >删除</el-button>
+        <router-link :to=" '/teacher/edit/'+scope.row.id">
+            <el-button type="primary" size="mini" icon="el-icon-edit">修改</el-button>
+        </router-link>
+          <el-button    type="danger" size="mini" icon="el-icon-delete" @click="removeDataById(scope.row.id)" >删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -151,22 +149,21 @@ export default {
         type: "warning"
       })
         // 点击确定，执行then
-        .then(() => { 
-
-            // 调用删除的方法
-            teacher.deleteByTeacherId(id)
+        .then(() => {
+          // 调用删除的方法
+          teacher
+            .deleteByTeacherId(id)
             // 删除成功
             .then(response => {
-                 this.$message({
-                    type: "success",
-                    message: "删除成功!"
-                });
+              this.$message({
+                type: "success",
+                message: "删除成功!"
+              });
 
-                //回到列表页面
-                this.getList()
-            })
-         
-        })
+              //回到列表页面
+              this.getList();
+            });
+        });
     }
   }
 };
