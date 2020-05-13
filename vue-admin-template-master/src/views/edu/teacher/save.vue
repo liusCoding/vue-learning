@@ -89,8 +89,7 @@ export default {
     },
 
     created(){
-            this.init()
-           
+            this.init()     
     },
 
     //监听路由变化
