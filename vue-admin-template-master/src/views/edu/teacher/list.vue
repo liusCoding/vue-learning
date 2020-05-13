@@ -151,15 +151,13 @@ export default {
         // 点击确定，执行then
         .then(() => {
           // 调用删除的方法
-          teacher
-            .deleteByTeacherId(id)
+          teacher.deleteByTeacherId(id)
             // 删除成功
             .then(response => {
               this.$message({
                 type: "success",
                 message: "删除成功!"
               });
-
               //回到列表页面
               this.getList();
             });

@@ -226,8 +226,9 @@ export default {
                 })
         },
 
-        saveOrUpdate(){
-            course.addCourseInfo(this.courseInfo)
+        //添加课程
+        addCourse(){
+              course.addCourseInfo(this.courseInfo)
                 .then(response  => {
                     //提示信息
                     this.$message({
@@ -238,6 +239,30 @@ export default {
                     //跳转到第二步
                     this.$router.push({path:'/course/chapter/'+response.data.courseId})
                 })
+        },
+
+        //修改课程
+        updateCourse(){
+            course.updateCourseInfo(this.courseInfo)
+                .then(response => {
+                    //提示信息
+                    this.$message({
+                        type: 'success',
+                        message: '修改课程信息成功'
+                    });
+
+                     //跳转到第二步
+                    this.$router.push({path:'/course/chapter/'+this.courseId})
+                })    
+        },
+
+        saveOrUpdate(){
+          //判断添加还是修改
+          if(!this.courseInfo.id){
+              this.addCourse()
+          }else{
+              this.updateCourse()
+          }
         },
     }
 }
