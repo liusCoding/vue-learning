@@ -32,4 +32,31 @@ export default {
             data: courseInfo
           })
     },
+
+    //5.根据id查询课程确认信息
+    getPublishCourseInfo(id){
+        return request({
+            url: '/edu/course/getPublishCourseInfo/'+id,
+            method: 'get'
+        })
+    },
+
+    //6.课程最终发布
+
+    publishCourse(id) {
+        return request({
+            url: '/edu/course/publishCourse/'+id,
+            method: 'post'
+          })
+    },
+    
+
+    //7.课程列表
+    getPublishCourseList(){
+        return request({
+            url: '/edu/course',
+            method: 'get'
+        })
+    },
+
 }
