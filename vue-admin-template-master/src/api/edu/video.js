@@ -38,4 +38,13 @@ export default {
             method: 'get'
         })   
     },
+
+    //删除视频
+    deleteAliyunvod(id){
+        return request({
+            url: '/eduvod/video/removeAliyunVideo/'+id,
+            method: 'delete'
+        })
+    }
+
 }

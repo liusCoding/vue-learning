@@ -59,4 +59,10 @@ export default {
         })
     },
 
+    deleteCourse(courseId) {
+        return request({
+            url: `/edu/course/${courseId}`,
+            method: 'delete'
+          })
+    },
 }

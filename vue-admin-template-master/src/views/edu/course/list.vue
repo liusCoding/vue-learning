@@ -109,7 +109,29 @@ export default {
             this.courseQuery = {}
             //查询所有讲师数据
             this.getList()
+        },
+
+          //删除课程的方法
+        removeDataById(id) {
+            this.$confirm('此操作将永久删除课程记录, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {  //点击确定，执行then方法
+                //调用删除的方法
+                course.deleteCourse(id)
+                    .then(response =>{//删除成功
+                    //提示信息
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                    });
+                    //回到列表页面
+                    this.getList()
+                })
+            }) //点击取消，执行catch方法
         }
+
  
     }
 }
