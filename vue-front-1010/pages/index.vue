@@ -149,7 +149,7 @@ export default {
     getHotCourseTeacher() {
       index.getIndexData()
         .then(response => {
-          this.eduList = response.data.data.eduList
+          this.eduList = response.data.data.courseList
           this.teacherList = response.data.data.teacherList
         })
     },

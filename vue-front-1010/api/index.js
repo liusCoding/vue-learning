@@ -4,7 +4,7 @@ export default {
     //查询热门课程和名师
   getIndexData() {
     return request({
-      url: '/eduservice/indexfront/index',
+      url: '/edu/indexFront/index',
       method: 'get'
     })
   }

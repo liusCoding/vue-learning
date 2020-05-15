@@ -4,7 +4,7 @@ export default {
     //查询前两条banner数据
   getListBanner() {
     return request({
-      url: '/educms/bannerfront/getAllBanner',
+      url: '/cms/bannerFront/getAllBanner',
       method: 'get'
     })
   }
