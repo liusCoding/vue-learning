@@ -8,5 +8,16 @@ export default{
           url: `/edu/teacherFront/getTeacherInfoList/${page}/${size}`,
           method: 'get'
       })
+  },
+
+
+  //讲师详情查询
+  getTeacherInfo(teacherId){
+      return request(
+          {
+            url: `/edu/teacherFront/getTeacherFrontInfo/${teacherId}`,
+            method: 'get'
+          }
+      )
   }
 }

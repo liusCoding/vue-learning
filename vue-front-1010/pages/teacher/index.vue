@@ -114,7 +114,6 @@ export default {
   asyncData({ params, error }) {
     return teacherApi.getTeacherList(1,8).then(response => {
           //this.data = response.data.data
-          debugger
           return { data: response.data.data.page }
        })
   },
