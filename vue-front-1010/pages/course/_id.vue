@@ -33,7 +33,10 @@
                 <a class="c-fff vam" title="收藏" href="#" >收藏</a>
               </span>
             </section>
-            <section class="c-attr-mt">
+            <section  v-if="isBuy || Number(courseWebVo.price) === 0" class="c-attr-mt">
+              <a href="#" title="立即观看" class="comm-btn c-btn-3">立即观看</a>
+            </section>
+            <section  v-else class="c-attr-mt">
               <a @click="createOrders()" href="#" title="立即购买" class="comm-btn c-btn-3">立即购买</a>
             </section>
           </section>
@@ -166,17 +169,21 @@ import courseApi from '@/api/course'
 import orderApi from '@/api/orders'
 export default {
    asyncData({ params, error }) {
-     return courseApi.getFrontCourseInfo(params.id)
-        .then(response => {
-          console.log(response.data.data.courseWebVo)
-          return {
-            
-            courseWebVo: response.data.data.courseWebVo,
-            chapterVideoList: response.data.data.chapterVoList,
-            courseId: params.id 
-          }
-        })
+    return {courseId:params.id}
    },
+
+   data(){
+     return {
+       courseWebVo: {},
+       chapterVideoList: [],
+       isBuy: false,
+     }
+   },
+
+  //在页面渲染之前执行
+  created(){
+      this.initCourseInfo()
+  },
 
   methods:{
       //生成订单
@@ -187,6 +194,15 @@ export default {
               //生成订单之后，跳转到订单显示页面
               this.$router.push({path:'/orders/'+response.data.data.orderNo})
           })
+      },
+
+      initCourseInfo(){
+         courseApi.getFrontCourseInfo(this.courseId)
+            .then(response =>{
+              this.courseWebVo = response.data.data.courseWebVo
+              this.chapterVideoList = response.data.data.chapterVoList
+              this.isBuy = response.data.data.isBuy
+            })
       }
   }
 };
